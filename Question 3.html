@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p id="result"></p>
+        <script>
+            g1= Number(prompt("Enter analysis grade: "));
+            g2= Number(prompt("Enter design grade: "));
+            g3= Number(prompt("Enter implementation grade: "));
+            g4= Number(prompt("Enter evaluation grade: "));
+            gtotal = g1+g2+g3+g4;
+            function gradecalc (mark) {
+                let grade = "";
+                let diff;
+                switch (true) {
+                    case mark < 4:
+                        grade = "U";
+                        diff = 4-mark;
+                        break;
+                    case mark < 13:
+                        grade = "G";
+                        diff = 13-mark
+                        break;
+                    case mark < 22:
+                        grade = "F";
+                        diff = 22 - mark;
+                        break;
+                    case mark <31:
+                        grade = "E";
+                        diff = 31 - mark;
+                        break;
+                    case mark < 41:
+                        grade = "D";
+                        diff = 41 - mark;
+                        break;
+                    case mark< 54:
+                        grade = "C";
+                        diff= 54-mark;
+                        break;
+                    case mark< 67:
+                        grade = "B";
+                        diff = 67- mark;
+                        break;
+                    case mark < 80:
+                        grade = "A";
+                        diff = 80-mark;
+                        break;
+                    case mark> 79:
+                        grade = "A*";
+                        diff = 0
+                        break;
+                }
+                return {
+                    grade: grade,
+                    diff: diff
+                };
+            }
+            grade = gradecalc(gtotal)
+            document.getElementById("result").innerHTML = `Your total score was ${gtotal}, your grade was ${grade.grade} and you were ${grade.diff} marks off the next grade`
+        </script>
+    </body>
+</html>
